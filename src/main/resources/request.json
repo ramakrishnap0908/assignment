@@ -1,0 +1,33 @@
+{
+	"tables": [{
+			"name": "product",
+			"alias": "p",
+			"selectColumns": "sku,name,description",
+			"columns": [{
+					"operator": "IN",
+					"fieldName": "name",
+					"fieldValue": "TennisBalls, Yonex Racket, Grips"
+				},
+				{
+					"operator": "LIKE",
+					"fieldName": "description",
+					"fieldValue": "tennis"
+				}
+			]
+		},
+		{
+			"name": "product_category",
+			"alias": "pc",
+			"selectColumns": "category_name",
+			"joinType": "INNER JOIN",
+			"joinCondition": "p.category_id = pc.category_id",
+			"columns": [{
+				"operator": "=",
+				"fieldName": "category_name",
+				"fieldValue": "Balls"
+			}]
+		}
+			 ]
+		}
+	]
+}

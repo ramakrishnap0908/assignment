@@ -1,0 +1,38 @@
+{
+  "tables": [
+    {
+      "name": "orders",
+      "alias": "o",
+      "columns": [
+        {
+          "fieldName": "order_date",
+          "operator": ">=",
+          "fieldValue": "2022-01-01"
+        },
+        {
+          "fieldName": "total_amount",
+          "operator": "<",
+          "fieldValue": 100.0
+        }
+      ]
+    },
+    {
+      "name": "customers",
+      "alias": "c",
+      "columns": [
+        {
+          "fieldName": "first_name",
+          "operator": "LIKE",
+          "fieldValue": "%John%"
+        },
+        {
+          "fieldName": "last_name",
+          "operator": "=",
+          "fieldValue": "Doe"
+        }
+      ],
+      "joinType": "INNER JOIN",
+      "joinCondition": "o.customer_id = c.id"
+    }
+  ]
+}
